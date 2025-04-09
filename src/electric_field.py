@@ -29,7 +29,14 @@ def calculate_potential(X, Y):
     """
     # TODO 1: 实现电势计算
     # 提示: 计算每个点到正负电荷的距离，应用电势公式
-    pass
+     # 计算到正电荷的距离
+    r1 = np.sqrt((X - pos_charge_pos[0])**2 + (Y - pos_charge_pos[1])**2)
+    # 计算到负电荷的距离
+    r2 = np.sqrt((X - neg_charge_pos[0])**2 + (Y - neg_charge_pos[1])**2)
+    # 计算电势（叠加原理）
+    V = k * q_pos / r1 + k * q_neg / r2
+    return V
+ 
 
 def calculate_electric_field(V, spacing):
     """
@@ -44,7 +51,10 @@ def calculate_electric_field(V, spacing):
     """
     # TODO 2: 实现电场计算
     # 提示: 使用np.gradient计算电势梯度，注意负号和参数顺序
-    pass
+    # 计算电势梯度
+    gy, gx = np.gradient(-V, spacing)  # 负梯度方向为电场方向
+    return gx, gy
+
 
 def main():
     """
@@ -62,9 +72,25 @@ def main():
     # 3. 使用plt.contourf绘制电势图
     # 4. 使用plt.streamplot绘制电场线
     # 5. 添加必要的标签、图例和标题
-    
+    # 计算电势和电场
+    V = calculate_potential(X, Y)
+    dx = x[1] - x[0]
+    Ex, Ey = calculate_electric_field(V, dx)
     plt.figure(figsize=(8, 6))
     # ... 绘图代码 ...
+    # 绘制电势分布
+    contour = plt.contourf(X, Y, V, levels=20, cmap='viridis')
+    plt.colorbar(contour, label='Electric Potential (V)')
+    # 绘制电场线
+    plt.streamplot(X, Y, Ex, Ey, color='white', density=1.5, linewidth=1, arrowsize=1)
+    # 绘制电荷位置
+    plt.scatter(pos_charge_pos[0], pos_charge_pos[1], c='red', s=100, label='Positive Charge')
+    plt.scatter(neg_charge_pos[0], neg_charge_pos[1], c='blue', s=100, label='Negative Charge')
+     # 添加标签和标题
+    plt.xlabel('x (m)')
+    plt.ylabel('y (m)')
+    plt.title('Electric Dipole Potential and Field Lines')
+    plt.legend()
     plt.show()
 
 if __name__ == "__main__":
