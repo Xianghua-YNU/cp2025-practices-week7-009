@@ -74,4 +74,4 @@ def process_image(input_file):
 
 if __name__ == "__main__":
     # 主程序入口 - 学生需要确保data/bwCat.tif文件存在
-    process_image('data/bwCat.tif')
+    process_image('https://github.com/Xianghua-YNU/cp2025-practices-week7-009/blob/main/data/bwCat.tif')
