@@ -16,25 +16,28 @@
 ### 任务 1: 读取数据
 说明你使用的读取数据的函数和过程。
 
-调用 load_data 函数，该函数使用 pd.read_csv('data.csv') 读取名为 data.csv 的文件。
+调用 load_data 函数，该函数使用 ```pd.read_csv('data.csv')```读取名为 data.csv 的文件。
 返回一个包含学生信息的 DataFrame。
 
+```
 def load_data():
 
     return pd.read_csv('data.csv')
-  
+```  
 
 ### 任务 2: 查看数据基本信息
 描述如何查看数据的基本信息。
 
-调用 show_basic_info(data) 函数，传入读取的数据。
-在函数中，使用 data.info() 打印数据的基本信息。
+调用 ```show_basic_info(data)``` 函数，传入读取的数据。
+在函数中，使用 ```data.info()``` 打印数据的基本信息。
 
+```
 def show_basic_info(data):
 
     print("数据基本信息：")
   
     data.info()
+```
 
 ### 任务 3: 处理缺失值
 说明你找出缺失值列和填充缺失值的方法。
@@ -43,6 +46,7 @@ def show_basic_info(data):
 遍历这些列，判断其数据类型是否为数值类型。
 如果是数值列，则使用 fillna(data[col].mean()) 来填充缺失值。
 
+```
 def handle_missing_values(data):
 
     missing_columns = data.columns[data.isnull().any()].tolist()
@@ -54,13 +58,17 @@ def handle_missing_values(data):
             data[col] = data[col].fillna(data[col].mean())
             
     return data
-    
+ ```
+   
 ### 任务 4: 数据统计分析
 说明你计算数值列均值、中位数和标准差的方法。
 
 在某个函数中，对 DataFrame 的数值列进行分析。
-使用 data[['成绩', '年龄']].mean() 计算均值，data[['成绩', '年龄']].median() 计算中位数，data[['成绩', '年龄']].std() 计算标准差。
+使用 ```data[['成绩', '年龄']].mean()``` 计算均值，
+```data[['成绩', '年龄']].median()``` 计算中位数，
+```data[['成绩', '年龄']].std()``` 计算标准差。
 
+```
 def basic_statistics(data):
 
     print("均值：")
@@ -74,14 +82,16 @@ def basic_statistics(data):
     print("标准差：")
     
     print(data[['成绩', '年龄']].std())
+```
 
 ### 任务 5: 数据可视化
 描述你选择的数值列和绘制直方图的过程。
 
 导入 matplotlib.pyplot。
-在某个函数中，使用 plt.hist(data['成绩'], bins=5) 绘制成绩的直方图。
-设置标题、横轴标签和纵轴标签，最后调用 plt.show() 显示图形。
+在某个函数中，使用 ```plt.hist(data['成绩'], bins=5)``` 绘制成绩的直方图。
+设置标题、横轴标签和纵轴标签，最后调用 ```plt.show()``` 显示图形。
 
+```
 def plot_histogram(data):
 
     plt.hist(data['成绩'], bins=5, color='skyblue', edgecolor='black')
@@ -93,15 +103,18 @@ def plot_histogram(data):
     plt.ylabel('频数')
     
     plt.show()
+```
 
 ### 任务 6: 数据保存
 说明你保存处理后数据的方法。
 
-在某个函数中调用 data.to_csv('processed_data.csv', index=False, encoding='utf-8')。
+在某个函数中调用 ```data.to_csv('processed_data.csv', index=False, encoding='utf-8')```。
 将处理好的数据保存至名为 processed_data.csv 的新文件中。
 
+```
 def save_data(data):
     data.to_csv('processed_data.csv', index=False, encoding='utf-8')
+```
 
 ## 三、实验结果
 展示每个任务的结果，可使用表格或图表进行呈现。
@@ -120,6 +133,7 @@ def save_data(data):
 粘贴数据的基本信息输出。
 
 数据基本信息：
+```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 5 entries, 0 to 4
 Data columns (total 4 columns):
@@ -131,6 +145,7 @@ Data columns (total 4 columns):
  3   城市      5 non-null      object 
 dtypes: float64(2), object(2)
 memory usage: 168.0+ bytes
+```
 
 ### 任务 3: 处理缺失值
 说明处理后缺失值的情况。
