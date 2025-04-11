@@ -23,26 +23,23 @@
 使用的函数：plot
 
 绘图方法
-定义符号变量：
-```
-x = sp.symbols('x')
-```
+定义符号变量：```x = sp.symbols('x')```
 
 定义表达式：```expr = sp.cos(sp.tan(sp.pi * x))```
 
-调用绘图函数：plot(expr, (x, -1, 1), xlabel='x', ylabel='cos(tan(pi*x))', title='Problem 1: Plot of cos(tan(pi*x))')
+调用绘图函数：```plot(expr, (x, -1, 1), xlabel='x', ylabel='cos(tan(pi*x))', title='Problem 1: Plot of cos(tan(pi*x))')```
 使用plot函数将上述表达式绘制在区间[-1, 1]之上，并设置了坐标轴标签和标题。
 
-2.绘制隐函数曲线 e^y + cos(x)/x + y = 0
+2.绘制隐函数曲线 ```e^y + cos(x)/x + y = 0```
 
-使用的函数：plot_implicit
+使用的函数：```plot_implicit```
 
 绘图方法
-定义符号变量：x, y = sp.symbols('x y')
+定义符号变量：```x, y = sp.symbols('x y')```
 
-定义隐式表达式：expr = sp.exp(y) + sp.cos(x)/x + y
+定义隐式表达式：```expr = sp.exp(y) + sp.cos(x)/x + y```
 
-调用绘图函数：plot_implicit(expr, (x, -10, 10), (y, -10, 10), xlabel='x', ylabel='y', title='Problem 2: Implicit plot of exp(y)+cos(x)/x+y=0', points=500)
+调用绘图函数：```plot_implicit(expr, (x, -10, 10), (y, -10, 10), xlabel='x', ylabel='y', title='Problem 2: Implicit plot of exp(y)+cos(x)/x+y=0', points=500)```
 使用plot_implicit函数绘制隐函数，(x, -10, 10)和(y, -10, 10)指定绘图区域，points=500设置绘制点的数量，提高图形的细腻程度。
 
 3.绘制参数曲面
@@ -50,17 +47,17 @@ x = sp.symbols('x')
 使用的函数：plot3d_parametric_surface
 
 绘图方法
-定义符号变量：s, t = sp.symbols('s t')
+定义符号变量：```s, t = sp.symbols('s t')```
 
 定义参数曲面的表达式：
-
+```
 x = sp.exp(-s) * sp.cos(t)
 
 y = sp.exp(-s) * sp.sin(t)
 
 z = t
-
-调用绘图函数：plot3d_parametric_surface(x, y, z, (s, 0, 8), (t, 0, 5*sp.pi), xlabel='x', ylabel='y', zlabel='z', title='Problem 3: Parametric Surface Plot')
+```
+调用绘图函数：```plot3d_parametric_surface(x, y, z, (s, 0, 8), (t, 0, 5*sp.pi), xlabel='x', ylabel='y', zlabel='z', title='Problem 3: Parametric Surface Plot')```
 使用plot3d_parametric_surface绘制参数化曲面，(s, 0, 8)和(t, 0, 5π)定义了参数的取值范围，并设置了坐标轴标签和标题。
 
 ---
@@ -69,19 +66,21 @@ z = t
 
 ### 问题1: 函数曲线 $\cos(\tan(\pi x))$ 绘制结果
 
-*(插入图片或截图并简要分析曲线特点)*
+
 ![image](https://github.com/user-attachments/assets/de807304-f2ee-49c1-9ea3-23f41e2e759e)
+
 曲线特点：tan(πx)为奇函数，cos(x)为偶函数，故cos(tan(πx))为偶函数,曲线沿x轴对称。cos函数是一个周期函数，因此cos(tan(πx))也具有一定的周期性。由于tan函数在其周期内会从负无穷到正无穷变化，cos(tan(πx))的图形在一定区间内表现出复杂的震荡特性。
 
 ### 问题2: 隐函数曲线 $e^y + \frac{\cos x}{x} + y = 0$ 绘制结果
 
-*(插入图片或截图并简要分析隐函数曲线特点)*
+
 ![image](https://github.com/user-attachments/assets/edb34563-1ce7-487f-928d-b9af3dd26c12)
+
 曲线特点：在y较大时，e^y值大，导致隐函数的右侧整体更可能小于0，呈现出一条向下倾斜的趋势。由于方程较为复杂，曲线展现出交错和凹凸结构。
 
 ### 问题3: 参数曲面绘制结果
 
-*(插入图片或截图并简要分析三维曲面的特点)*
+
 ![image](https://github.com/user-attachments/assets/9e262af7-41e0-4097-93b0-4ee281e8e177)
 
 曲线特点：曲面从原点开始向外展开，形成类似于螺旋的结构，t参数增加时，x和y会以圆周运动形式向外“扩展”。这是一个三维曲面，参数s和t的变化使得该结构具有高度的视觉复杂性，展现了三维空间中的动态变化。
