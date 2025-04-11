@@ -28,7 +28,7 @@ def creat_frame():
 
 def load_data():
     """任务1: 读取数据文件"""
-     return pd.read_csv('data.csv')
+    return pd.read_csv('data.csv')
 
 def show_basic_info(data):
     """任务2: 显示数据基本信息"""
@@ -62,6 +62,7 @@ def visualize_data(data, column_name='成绩'):
 def save_processed_data(data):
     """任务7: 保存处理后的数据"""
     data.to_csv('processed_data.csv', index=False)
+
 def main():
     """主函数，执行所有数据处理流程"""
     # 1. 读取数据
