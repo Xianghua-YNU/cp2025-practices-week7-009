@@ -23,9 +23,12 @@
 使用的函数：plot
 
 绘图方法
-定义符号变量：x = sp.symbols('x')
+定义符号变量：
+```
+x = sp.symbols('x')
+```
 
-定义表达式：expr = sp.cos(sp.tan(sp.pi * x))
+定义表达式：```expr = sp.cos(sp.tan(sp.pi * x))```
 
 调用绘图函数：plot(expr, (x, -1, 1), xlabel='x', ylabel='cos(tan(pi*x))', title='Problem 1: Plot of cos(tan(pi*x))')
 使用plot函数将上述表达式绘制在区间[-1, 1]之上，并设置了坐标轴标签和标题。
