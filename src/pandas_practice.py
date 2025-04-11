@@ -7,9 +7,11 @@ def creat_frame():
     
     该函数创建一个包含学生姓名、年龄、成绩和所在城市的数据框架，
     并将其保存为UTF-8编码的CSV文件。
-
+    
+    Returns:
+        None
     """
-     # 创建一个字典来模拟数据
+    # 创建一个字典来模拟数据
     data = {
     '姓名': ['张三', '李四', '王五', '赵六', '陈七'],
     '年龄': [25, 30, None, 22, 28],
@@ -17,16 +19,16 @@ def creat_frame():
     '城市': ['北京', '上海', '广州', '深圳', '上海']
     }
 
-
     # 将字典转换为 DataFrame
     df = pd.DataFrame(data)
 
     # 将 DataFrame 保存为 CSV 文件
-    df.to_csv('data.csv', index=False, encoding='utf-8')
+    df.to_csv('data/data.csv', index=False, encoding='utf-8')
+
 
 def load_data():
     """任务1: 读取数据文件"""
-    return pd.read_csv('data.csv')
+    return pd.read_csv('data/data.csv')
 
 def show_basic_info(data):
     """任务2: 显示数据基本信息"""
@@ -50,15 +52,13 @@ def analyze_statistics(data):
         std_value = data[col].std()
         print(f"{col} 列的均值: {mean_value}, 中位数: {median_value}, 标准差: {std_value}")
 
-
 def visualize_data(data, column_name='成绩'):
-    """任务6: 数据可视化"""
+    """任务5: 数据可视化"""
     data[column_name].plot.hist()
     plt.show()
 
-
 def save_processed_data(data):
-    """任务7: 保存处理后的数据"""
+    """任务6: 保存处理后的数据"""
     data.to_csv('processed_data.csv', index=False)
 
 def main():
